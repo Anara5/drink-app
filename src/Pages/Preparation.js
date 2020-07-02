@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import NavBar from '../Components/NavBar';
 import data from '../Data/drinks.json';
 import {Link} from 'react-router-dom';
-
+import UserComment from '../Components/UserComment';
 
 const Preparation = (props) => {
 
@@ -10,21 +10,13 @@ const Preparation = (props) => {
     const cocktail = data.cocktails.filter((cocktail) => cocktail.name === cocktailName)[0];
 
 
-    const onPreviousClick = (e) => {
-        e.preventDefault();
-        console.log(cocktailName[-1])
-    }
-    
     return (
+        
         <div className="Page">
             <header className="Header">
                 <NavBar />
             </header>
 
-            <nav aria-label="Page navigation" className="container">
-            <Link onClick={onPreviousClick}>Previous</Link>
-            <Link>Next</Link>
-            </nav>  
 
             <div className="drink">
             <p>Ordinary Drink</p>
@@ -32,6 +24,9 @@ const Preparation = (props) => {
             <p>{cocktail.preparation}</p>
             <img style={{height: 500, width: 500}} src={cocktail.image} alt="cocktail"/>
             </div>
+
+            <UserComment />
+            
         </div>
     )
 }
