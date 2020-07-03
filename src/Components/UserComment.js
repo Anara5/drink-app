@@ -89,7 +89,7 @@ class UserComment extends React.Component {
                     <br/>
 
                     <button 
-                        fluid
+                        fluid="true"
                         id="submit" 
                         type="submit" 
                         onClick={this.submitComment}
